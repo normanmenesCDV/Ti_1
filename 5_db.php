@@ -10,6 +10,24 @@
     <?php
         require_once "./scripts/db/connect.php";
         // echo $conn->connect_errno;
+        $sql = "SELECT * FROM `users`;";
+        $result = $conn->query($sql);
+        // $user = $result->fetch_assoc();
+        // print_r($user);
+        // echo $user["firstName"];
+
+        while($user = $result->fetch_assoc()) {
+            // print_r($user);
+            // var_dump($user);
+            // echo "<br>";
+            $yearOfBirth = substr($user["birthday"], 0, 4);
+            echo <<< USERS
+                Imię i nazwisko: $user[firstName] $user[lastName]<br>
+                Data urodzenia: $user[birthday]<br>
+                Rok urodzenia: $yearOfBirth<br>
+                <hr>
+                USERS;
+        }
     ?>
 </body>
 </html>
