@@ -20,7 +20,7 @@
         </tr>
         <?php
         require_once "./scripts/db/connect.php";
-        $sql = "SELECT * FROM users u INNER JOIN cites c on c.id = u.city_id INNER JOIN states s on s.id = c.state_id INNER JOIN countries co on co.id = s.country_id";
+        $sql = "SELECT * FROM users u INNER JOIN cities c on c.id = u.city_id INNER JOIN states s on s.id = c.state_id INNER JOIN countries co on co.id = s.country_id";
         $result = $conn->query($sql);
         while ($user = $result->fetch_assoc()) {
             echo <<< TABLEUSERS
